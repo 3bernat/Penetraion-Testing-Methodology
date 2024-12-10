@@ -1,4 +1,22 @@
+Always try anonymous login if it is available: 
+
+Username: anonymous
+Password: anonymous (or keys you want to put in.)
+
 # FTP Enumeration Tools
+## Manual Connection
+```
+$ ftp 172.21.0.0
+```
+
+```
+$ nc -vn 172.21.0.0 21
+```
+
+## Connect via Browser
+```
+ftp://172.21.0.0
+```
 
 ## Nmap Enumeration
 
@@ -16,18 +34,14 @@ $ ls -lh /usr/share/nmap/scripts/ | grep ftp
 $ nmap x.x.x.x -p 21 -sV --script=exampleScript1.nse,exampleScript2.nse
 ```
 
-## Manual Connection
+## Netexec
 
-```sh
-$ ftp x.x.x.x
 ```
+- netexec ftp 172.21.0.0
+- netexec ftp 172.21.0.0 -u 'a' -p ''
+- netexec ftp 172.21.0.0 -u 'anonymous' -p '''
 
-```sh
-$ nc x.x.x. 21
-```
+# FTP Default wordlists: 
+/usr/share/seclists/Passwords/Default-Credentials/ftp-betterdefaultpasslist.txt
 
-## Connect via Browser
-
-```sh
-ftp://x.x.x.x
 ```

